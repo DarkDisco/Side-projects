@@ -1,1 +1,20 @@
 #Info
+The project models the energy states of a quanutm mechanical potential well using random walks.
+A random walk is a mathematical method of describing the path taking by a point of interest. For 
+example a random walk on an integer number line with different probabilites for moving in either
+the positive or negative direction will result in a path traced out on the number line after N
+integer steps are taken.
+
+An extra feature need to describe a potential well in a semi-classical regime is the probabilty 
+of the random walk being terminated. The termination of the random walk must depend on the
+potential at that point in space. The rate of termination is found by counting the number of
+walks that last n steps. Then plotting the log of the number of terminated walks against n steps.
+
+The one-dimensional case considers a particle confined in an infinite square potential which is 
+discribed by a one-dimensional schrodinger equation. The random walk termination rate is related
+to the energy level of the potential well via an equation and constants. Serval 100 iterations
+with walks that have reached the max number of steps is required to get a reliable energy value.
+
+The two-dimensional case considers a walker that can move to one of four adjacent lattice postions with
+equal probability. A circular potential terminates a walk if it reaches the circumference of the circle 
+or reaches a nodal line caused by the symmetry of the potential and energy state of the system.
