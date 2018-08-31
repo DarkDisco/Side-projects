@@ -1,1 +1,11 @@
 #Info
+
+The critical mass of Uranium defines the minimum size at which a chain reaction can occur if the 
+fission process is not controlled by limiting the number of thermal neutrons avaliable.
+
+By using a Monte Carlo simulation the inhrent uncertainity in the production and absorption of
+thermal neutrons within a Uranium sample can be account for. The simulaton allows for probability 
+distribution to describe the likelyhood of a secondary fission event occuring within the length 
+scales of the Uranium sample. The simulation runs multiple itterations so that a distribution of the
+possible outcomes of the situation presented. Probability distributions are a realisatic way of
+discribing the uncertainty of an event for risk analyis.
