@@ -1,1 +1,24 @@
 #Info
+
+Quantum mechanics predicts that particles may tunnel through a potenial barrier, instead of being 
+reflected as predicted by classical mechanics. The probability of a quantum mechanical wavefunction 
+tunneling through a potential barrier can be found analytically by solving Schrodingers equation, 
+however for most potentials a numerical solutions is required. 
+
+In this project a Runge-Kutta method is used to solve a dimensionless Schrodinger equation. Due to
+its accuracy in solving differential equations using the predictor-corrector algorithm. The algorithm
+takes an intial value problem and iterates the x and y values using derived formulae. The x values
+are iterated using a chosen step size apropriate for the differential being modelled. The y iteration
+is a weighted average of four values. Each of the values is an estimate for the change in y value
+between two points.
+
+The Schrodinger equation is a second order differential equation and must converted in two partial
+differential equations of the first order. By considering a complex wavefunction each first order 
+differential equation is solved twice, for the real and imaginary parts of the wavefunction. To
+find the solutions to the wavefunction for all space inside the potential barrier the simulation 
+intergrates backwards from the end of the barrier. Finally the solutions to the differential 
+eqUations are used to determine the coeffiecents for incident and reflected waves.
+
+To check the accuracy of the numerical solutions, the simulations result for an exact case is 
+compared to the analytical result. Once in agreement the simulation can be run for various other 
+Potentials.
