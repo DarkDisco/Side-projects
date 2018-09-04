@@ -14,20 +14,12 @@ m=2       #9.11e-31        # mass of an electron
 T=1           # fix transmission amplitude 
 K=1              # set K equal to 1 for simplicity
 
-"""def k(x):                      # Defines k for inside and ouside barrier
-    if x>=0 and x<=L:
-        k=(2*m*(E-V0)/hbar**2)**0.5
-    else: 
-        k=((2*m*E)/(hbar**2))**0.5
-    return k"""
-
-
 def V(x):
     "Calculates potential"
     #V=V0/((1+x**2)/2L**2)**2
-    V3=0
+    V3=0                       # Defines potential outside barrier
     if x>=0 and x<=L:           # Potential of wavefunction inside the barrier
-        #V=V0/(cosh(x/L)**2)
+       
         return V0
     else:                    # Potential outside barrier
         return V3
@@ -36,7 +28,6 @@ def V(x):
 def derivs(n,x,y):
     "DERIVS calculates y' from x and y"
     dy=np.zeros(n+1,float)             # List of n+1 zeros as floats
-    #dy=[0 for i in range(0,9+1)]
     dy[1]=y[2]                            # Puts the second order Schrodinger eq into
     dy[2]=(V(x)-E)*y[1]  #*(2*m/hbar**2)   
     return dy
