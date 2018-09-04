@@ -32,7 +32,7 @@ def circular_qrw(nsteps, nwalks=1000, wellradius=15):
             
             if R >= wellradius: # if position of walker is greater than the radius of the well, reduce number of walkers by 1
                 nwalks=nwalks -1
-                break  # s
+                break  # Stops loop
             #if lowwerbound<= R <= upperbound:
              #   nwalks=nwalks -1
               #  break
