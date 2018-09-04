@@ -137,11 +137,3 @@ else:
     theory=sinh(pi*K*L)**2 / (sinh(pi*K*L)**2 + cosh(pi*(u-0.25)**0.5)**2)
 print "Theoretical value =", theory
 
-#---------------------------- Standard Error 
-
-tavg=sum(Tcoef)/len(Tcoef)
-for j in range(0,Nn):
-    Tcoef[j]=Tcoef[j]-tavg
-    Tcoef[j]=Tcoef[j]*Tcoef[j]
-sigma=(sum(Tcoef)/(Nn-1))**0.5
-print "Sigma =", sigma
