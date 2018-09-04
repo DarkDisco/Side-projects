@@ -6,13 +6,13 @@ from matplotlib.patches import Rectangle
 import numpy as np
 
 L=1         # Length of barrier
-kappa=1      # imaginary wave number?? 
+kappa=1      # imaginary wave number 
 E=8               #  Energy of beam
 hbar=1        #1.05457e-34
 V0=10             # Regtangualr potential barrier magnitude
 m=2       #9.11e-31        # mass of an electron
 T=1           # fix transmission amplitude 
-K=1              # set K equal to 1 for simplicity apparently...? 
+K=1              # set K equal to 1 for simplicity
 
 """def k(x):                      # Defines k for inside and ouside barrier
     if x>=0 and x<=L:
@@ -42,7 +42,7 @@ def derivs(n,x,y):
     return dy
 
 
-def runkut(n,x,y,h):                 # Does magic... 
+def runkut(n,x,y,h):                 
     "Advances solution defined by derivs from x to x+h"
     y0=y[:]
     k1=derivs(n,x,y)
