@@ -13,7 +13,7 @@ for v in range(0,100,1):#Runs code 100 times to average out random error
     aa=[]               #associated with the number of neutrons that cause
     bb=[]               #secondary fissions.
     cc=[]
-    p=[]#Will containe the final value of L
+    p=[]#Will contain the final value of L
     lb=10#lower bound for values of L that could be the  critcial length
     ub=20#upper bound for values of L 
     
