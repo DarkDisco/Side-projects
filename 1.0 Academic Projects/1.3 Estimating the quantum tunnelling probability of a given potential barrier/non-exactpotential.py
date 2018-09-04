@@ -5,13 +5,13 @@ from matplotlib import pyplot as plt
 from matplotlib.patches import Rectangle
 import numpy as np
 
-K=1
+K=1           # wavenumber of free partcile 
 L=1         # Length of barrier
 E=1               #  Energy of beam
 hbar=1         #1.05457e-34
 V0=2            # Regtangualr potential barrier magnitude
 m=K*K/(2*E)        #9.11e-31        # mass of an electron
-T=1e-9           # fix transmission amplitude           #(2*m*E/hbar**2)*0.5             # set K equal to 1 for simplicity apparently...? 
+T=1e-9           # fix transmission amplitude           #(2*m*E/hbar**2)*0.5             
 kappa=(2*m*V0/hbar**2)**0.5      # imaginary wave number?? 
 
 def V(x):
