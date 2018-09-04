@@ -12,7 +12,7 @@ hbar=1         #1.05457e-34
 V0=2            # Regtangualr potential barrier magnitude
 m=K*K/(2*E)        #9.11e-31        # mass of an electron
 T=1e-9           # fix transmission amplitude           #(2*m*E/hbar**2)*0.5             
-kappa=(2*m*V0/hbar**2)**0.5      # imaginary wave number?? 
+kappa=(2*m*V0/hbar**2)**0.5      # imaginary wave number
 
 def V(x):
     "Calculates potential"
@@ -98,7 +98,7 @@ plt.show()
 #--------------------------------------- Slicing list to start on LHS of barrier
 Nn=int((10*pi +20)*N/100)  # index of the x value list correspoding to 20.559 
 phis=phi[-Nn:]          # sliced list to start from ~ -20
-phips=phiprime[-Nn:]
+phips=phiprime[-Nn:]    # sliced list of phi prime
 chis=chi[-Nn:]
 chips=chiprime[-Nn:]
 xps=xp[-Nn:]
@@ -114,6 +114,8 @@ for j in range(0,Nn):   # works out RR* and II*
     Rflux[j]=0.25*((phis[j]-(chips[j]/K))**2 +(chis[j]+(phips[j]/K)**2))
     Tflux[j]=Iflux[j]-Rflux[j] 
     Tcoef[j]=(T*T)/Iflux[j]             # 1-(Rflux[j]/Iflux[j])
+    
+#------------------------------------Plotting
 
 plt.plot(xps, Tcoef)
 plt.show()
@@ -130,9 +132,3 @@ else:
     theory=sinh(pi*K*L)**2 / (sinh(pi*K*L)**2 + cosh(pi*(u-0.25)**0.5)**2)
 print "Theoretical value =", theory
 
-tavg=sum(Tcoef)/len(Tcoef)
-for j in range(0,Nn):
-    Tcoef[j]=Tcoef[j]-tavg
-    Tcoef[j]=Tcoef[j]*Tcoef[j]
-sigma=(sum(Tcoef)/(Nn-1))**0.5
-print "Sigma =", sigma
