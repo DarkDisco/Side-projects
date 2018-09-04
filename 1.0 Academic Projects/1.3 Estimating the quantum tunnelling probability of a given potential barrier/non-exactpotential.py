@@ -1,4 +1,4 @@
-# cosh potential!
+# Non-exact potential
 
 from math import cosh, cos, sin, sinh, pi
 from matplotlib import pyplot as plt
