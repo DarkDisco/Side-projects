@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import random
 from scipy.stats import linregress
 
-s=[-1,1]
+s=[-1,1] # Used to define movement in positive or negative direction
 
 def drunkardswalk(nsteps, nwalks=1000, wellwidth=20):
     """Input= max steps for 1 walker; number of walkers; well width/2 """
@@ -37,5 +37,4 @@ plt.ylabel("log(k)")
 #plt.legend("Ground state termination rate",)
 print linregress(x,np.log(k))
 
-# Try graident between 25--60
             
