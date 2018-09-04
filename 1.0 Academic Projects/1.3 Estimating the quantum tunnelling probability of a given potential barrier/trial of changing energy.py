@@ -13,7 +13,7 @@ hbar=1         #1.05457e-34
 V0=2            # Regtangualr potential barrier magnitude
 m=K*K/(2*E)        #9.11e-31        # mass of an electron
 T=1e-9           # fix transmission amplitude 
-          #(2*m*E/hbar**2)*0.5             # set K equal to 1 for simplicity apparently...? 
+          #(2*m*E/hbar**2)*0.5             # set K equal to 1 for simplicity  
 kappa=(2*m*V0/hbar**2)**0.5      # imaginary wave number?? 
 
 def V(x):
@@ -31,7 +31,7 @@ def derivs(n,x,y):
     dy[2]=(V(x)-E)*y[1]   
     return dy
     
-def runkut(n,x,y,h):                 # Does magic... 
+def runkut(n,x,y,h):                 
     "Advances solution defined by derivs from x to x+h"
     y0=y[:]
     k1=derivs(n,x,y)
@@ -50,7 +50,7 @@ def runkut(n,x,y,h):                 # Does magic...
     x+=h
     return (x,y)
 
-def runkut1(n,x2,y2,h):                 # Does magic... 
+def runkut1(n,x2,y2,h):              
     "Advances solution defined by derivs from x to x+h"
     y0=y2[:]
     k1=derivs(n,x2,y2)
