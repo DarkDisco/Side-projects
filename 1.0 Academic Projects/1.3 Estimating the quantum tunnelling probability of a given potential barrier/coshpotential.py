@@ -1,21 +1,21 @@
-# cosh potential!
+# cosh potential
 
 from math import cosh, cos, sin, sinh, pi
 from matplotlib import pyplot as plt
 from matplotlib.patches import Rectangle
 import numpy as np
 
-K=1
+K=1         # Wavenumber of free particle
 L=1         # Length of barrier
 E=0.8               #  Energy of beam
-hbar=1         #1.05457e-34
+hbar=1         #1.05457e-34 fundamental constant
 V0=2            # Regtangualr potential barrier magnitude
-m=K*K/(2*E)        #9.11e-31        # mass of an electron
-T=1e-9           # fix transmission amplitude           #(2*m*E/hbar**2)*0.5             # set K equal to 1 for simplicity apparently...? 
-kappa=(2*m*V0/hbar**2)**0.5      # imaginary wave number?? 
+m=K*K/(2*E)        #9.11e-31 mass of an electron
+T=1e-9           # fix transmission amplitude           #(2*m*E/hbar**2)*0.5
+kappa=(2*m*V0/hbar**2)**0.5      # imaginary wave number
 
 def V(x):
-    "Calculates potential"
+    "Calculates potential at a point for a given x coordinate"
     V=V0/(cosh(x/L)**2)     # Potential of wavefunction inside the barrier
                 
     return V
@@ -27,7 +27,7 @@ def derivs(n,x,y):
     dy[2]=(V(x)-E)*y[1]   
     return dy
     
-def runkut(n,x,y,h):                 
+def runkut(n,x,y,h):                 # Given in project brief
     "Advances solution defined by derivs from x to x+h"
     y0=y[:]
     k1=derivs(n,x,y)
