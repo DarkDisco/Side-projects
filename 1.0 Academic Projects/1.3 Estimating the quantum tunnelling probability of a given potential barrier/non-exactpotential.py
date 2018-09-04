@@ -26,7 +26,7 @@ def derivs(n,x,y):
     dy[2]=(V(x)-E)*y[1]   
     return dy
     
-def runkut(n,x,y,h):                 # Does magic... 
+def runkut(n,x,y,h):                 
     "Advances solution defined by derivs from x to x+h"
     y0=y[:]
     k1=derivs(n,x,y)
@@ -45,7 +45,7 @@ def runkut(n,x,y,h):                 # Does magic...
     x+=h
     return (x,y)
 
-def runkut1(n,x2,y2,h):                 # Does magic... 
+def runkut1(n,x2,y2,h):                  
     "Advances solution defined by derivs from x to x+h"
     y0=y2[:]
     k1=derivs(n,x2,y2)
