@@ -1,0 +1,8 @@
+Algorithm Projects:
+
+1. Finding the symmetric difference
+  Improvements:
+  Adds duplicate values to the output set when the input set has more than one of the same unique value.
+  Can't iterate for more than two input sets.
+  
+2. 
