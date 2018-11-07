@@ -1,0 +1,42 @@
+function sym(A,B) {
+  // Function returns a set of elements that are either in sets A or b 
+  // but not both. Then ammends them to the output C.
+
+  var C = []; // Empty arrary for output of algorithm
+
+    // Ammends unique elements from set A into the output
+    for (var j = 0; j < A.length; j++) { // iterates over index of array B
+      var count1 = 0; // initial counts for how many times an element is not equal to elements from opposing set
+      
+      for (var i = 0; i < B.length; i++){ // iterates over index of array b
+        if (A[j] != B[i]) {    // if element j from set A is not equal to element i from set B then...
+          count1++         // increases count by one
+        } 
+      }
+      if (count1 == B.length) {  // appends the value of A[j] into the output array C, if the counter is equal to the length of set B.
+        C.push(A[j]) // adds the value A[j] to the open array C
+      }       
+      
+    }
+    // Ammends unique elements from set B into the output
+    for (var i = 0; i < B.length; i++) {
+      var count2 = 0;
+      
+      for (var j = 0; j < A.length; j++) { // iterates over index of array A
+        if (A[j] != B[i]) {
+          count2++
+        } 
+      }
+      if (count2 == A.length) {
+        C.push(B[i])
+      }
+    }
+
+  return C;
+}
+
+
+
+var A = [1,2,3];             // defines the set A
+var B = [4,2,1,5];          // defines the set B
+sym(A,B);             // calls the function sym
