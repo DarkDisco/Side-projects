@@ -1,0 +1,15 @@
+function multiplesOf3and5(number) {
+// functions takes argument number, and finds all the multiples of 3 or 5 that are less than number and adds them to a total
+
+  var sum = 0;     
+
+  for (var i = 3; i < number; i++) {         // incrementally increase the trial value up to the maximum defined by the variable, number
+    if (i % 3 == 0 || i % 5 == 0) {     // adds the trial number to the sum if, the trial number has no remainder when divided by 3 or 5
+      sum += i;
+    }
+  }
+  
+  return sum;
+}
+
+multiplesOf3and5(1000);
