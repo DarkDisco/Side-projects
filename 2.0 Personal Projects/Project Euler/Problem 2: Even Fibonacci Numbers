@@ -1,0 +1,20 @@
+function fiboEvenSum(n) {
+  // function returns the sum of all even numbers up to the nth term
+
+  var fib = [1,2]; // empty array for Fibonacci sequence
+  var sum = 2
+
+  for (var i = 0; i < n; i++) {     // iterates loop of n number of terms to be produced in fib sequence
+    var N = fib[i] + fib[i+1];   // creates next fib term
+    fib.push(N);               // appends the term to the end of fib array
+
+    if (N % 2 == 0) {            // adds term to sum if the term is even
+      sum += N;
+    }
+
+  }
+  
+  return sum ;
+}
+
+fiboEvenSum(10);
