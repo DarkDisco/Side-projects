@@ -1,0 +1,17 @@
+ function largestPrimeFactor(number) {
+  // function returns the largest prime factor from the argument number
+
+  var trialN = 2 // starting prime factor to try 
+
+  while (trialN <= number) {   // loop continues until the trial number becomes equal to the number given in the fuction argument 
+    if (number % trialN == 0) {   // if the remainder of number / trialN is zero then divide number by trialN again
+      number = number / trialN;
+    }
+    else                         // when the remainder becomes non-zero, loop breaks and trialN is incremented by 1
+      trialN+=1;
+  }
+
+  return trialN;
+}
+
+largestPrimeFactor(13195);
