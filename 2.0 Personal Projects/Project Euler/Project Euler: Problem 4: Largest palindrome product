@@ -1,0 +1,77 @@
+function largestPalindromeProduct(n) {
+  // function returns the largest palindrome number of product of two n-digit numbers
+
+  var nine = [9,99,999], nums = [];    // variable nine produces largest n digit number up to 3-digits, and nums is an open array for two n-digit numbers to be appended to
+  var llp = [], pp = nine[n-1];         // llp is an open arrary for the list of palindromic products to be appended to, pp is dependent on the function argument n, and defines the numbers appended to nums
+  var array2 = [], a = [];           // open array for the second half of the digits of the product to be appended to, a is an open array for the largest palindrome product to be appended to
+
+
+  for (var i = 1; i <=2; i++) {        // appendeds two n-digit numbers to nums
+    nums.push(pp);
+  }
+  //console.log(nums);
+
+
+  for (var j = 1; j <= 2; j++) {           // iterates the second number of nums by -1
+    
+    var count = 0;                          // count used to re-set the first number in nums
+    for (var k = 1; k <= 2; k++) {       // iterates the first number of nums by -1
+      count += 1;
+      var testProduct = nums[0]*nums[1];    // multiplies the first and second                                                                             number of nums array
+      console.log(nums)
+      console.log(testProduct)
+  
+      var g = testProduct.toString();       // converts product of two numbers into a string
+      var x = Array.from(g);               // converts elements of string into the elements of an array
+      //console.log(x)
+  
+      for (var l = 0; l < x.length; l++) {    // appends the last element of arrary x, into the last                                                        element of array2
+        array2[l] = x.pop();
+      }
+
+      //console.log(x)
+      //console.log(array2)
+
+      nums[0] -= 1;                          // decreases the first two digits number by one
+
+      function arraysEqual(arr1, arr2) {  
+        // function returns true, if two different arrays are found to be identical     
+        if(arr1.length !== arr2.length)       // checks if arrays have the same amount of elements
+          return false;
+        for(var i = arr1.length; i--;) {     // iterates through each of the elements of array
+          if(arr1[i] !== arr2[i])             // checks if elements from two different arrays are identical
+            return false;
+        }
+
+        return true;
+      }
+
+      console.log(arraysEqual(x,array2))   // calls function to check if two arrays are identical
+
+      if (arraysEqual(x,array2) == true) {        // appends testProduct to llp if the number is a                                                                palindrome
+        llp.push(testProduct);
+      }
+
+      console.log("----------")
+  
+    }
+
+    nums[1]-= 1;                   // decreases the value of nums[1] by 1
+    nums[0] += count;              // used to reset nums[0] for next iteration of loop
+  }
+
+
+
+  llp.sort(function(a,b){return b - a});    // sorts elements of array llp into decending order
+  a.push(llp[0]);                            // appends the largest palindrome product into open array a
+  //console.log(a)
+
+  console.log("----------")
+  console.log(a)
+  console.log("----------")
+  console.log("----------")
+
+  return a;
+}
+
+largestPalindromeProduct(3);
