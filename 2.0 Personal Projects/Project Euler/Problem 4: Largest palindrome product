@@ -1,0 +1,63 @@
+# Project Euler Q4
+
+def LPP(n):
+    """function returns the largest palindrome product of the 
+        number given by the argument n"""
+    
+    nums = []                     # open array for two n-digit numbers
+    lpp= []                    # open array for Palindromic numbers to be appended to   
+    nine = [9,99,999,9999,99999]    # Provides highest number of an n-digit number, up to n=5
+    pp = nine[n-1]
+    
+     
+    for i in range(0,2):      # appends n-digit number to array nums, twice         
+        nums.append(pp)
+        
+
+#------------------------------------------ Iterates numbers with decreasing product until Palindromic number is found         
+    for i in range(1,pp): # 10
+        #print "--------------"
+        count = 0                    # count used to re-set number to orginal value depending on how many iterations have been looped
+        
+        for j in range(1,pp): #94
+            testProduct = nums[0]*nums[1]         # multiplies the first and second number of nums array
+            array = [int(x) for x in str(testProduct)]  # Converts digits of a number into the elements of an array
+            array1 = []                      # open array for the first half of the digits of testProduct    
+            array2 = []                  # open array for second half of digits 
+            count +=1
+            
+            for k in range((len(array)/2),len(array)):       #appends the last half of the product to array2
+                array2.append(array[k])  
+                
+            for l in range(0,(len(array)/2)):        # appends the first half of the product to array1
+                array1.append(array[l])
+            
+            array2.reverse()       # reverses the order of the array
+            
+
+#----------------------------------------------- debugging values                         
+            #print "numbers =",nums                     
+            #print "Product of numbers =", array
+            #print array1           #first half of the products digits
+            #print array2           # second half of the products digits 
+#-----------------------------------------------------------------            
+            nums[0] -= 1              # decreases the value of the first two digit number 
+            if array1 == array2:         # validation for stopping function if Palindrome is found and returning that value 
+                lpp.append(testProduct)
+                #print "--------------"
+                #return lpp
+                   
+        nums[1] -= 1                # Decreases the value of second number by 1 so that the for loop may be run again with new numbers
+        nums[0] += count           # Re-sets first two-digit number to starting value before begining the loop again 
+        
+#--------------------------------------------------------- Selecting largest Palindromic product 
+    lpp.sort()
+    lpp.reverse()
+    a = []                    # open array for largest palindrome product 
+    a.append(lpp[0])
+
+    
+    print "--------------"
+    return a
+    
+print LPP(4)
