@@ -11,29 +11,15 @@ function sumSquareDifference(n) {
   } 
   //console.log(a)
 
-
-  //---------------------------------- generating squareOTS
-
-  for (var l = 0; l < n; l++) {
-    sum2 += a[l];
+  for (var l = 0; l < n; l++) {    
+    sum2 += a[l];                   // generates sum of natural numbers 
+    a[l] *= a[l];                   // generates square of each element in array a
+    sumOTS += a[l];                 // generates sum of squared elements of array a
   } 
-  squareOTS = sum2*sum2;
-
-  //---------------------------------- generating sumOTS and summing
+  squareOTS = sum2*sum2;             // produces square of total
   
-  for (var j = 0; j < n; j++) {          // generates sequares of each element in a
-    a[j] *= a[j];
-  }
-  //console.log(a)
-
-  for (var k = 0; k < n; k++) {         // summing 
-    sumOTS += a[k];
-  }
-  //console.log(sumOTS)
-  //---------------------------------- generating SquareOTS and summing 
-  
-  dif = squareOTS - sumOTS
-  console.log(dif)
+  dif = squareOTS - sumOTS           // find difference between square of the sum ans sum of the squares 
+  //console.log(dif)
 
   return dif;
 }
