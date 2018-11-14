@@ -1,0 +1,47 @@
+function smallestMult(n) {
+  // function returns the smallest multiple that can be divided by integers 1 to n with no remainder.
+
+  var div = 2;              // starting value to try dividing trialN by
+  var listOfDiv = [1];        // number that the trail is evenly divisable by are appended to this list
+
+  var startTime = Date.now();
+  let trial = n;
+
+
+  //for (var i = 0; i <= 100000000000000; i++) {       // 
+  while ((Date.now() - startTime) < 6000) {          // runs loop for 100 minutes, unless validation breaks out of the loop
+
+  
+    if (trial % 2 != 0) {            // makes sure the trial number is positive but starting with trail equals n and increasing trials by 1 if trials is odd
+      trial +=1;
+      //console.log("first trial =", trial) 
+    }
+    else{
+      if (trial % div == 0) {       // if the remainder of the trail number divided by div is equal                           to zero then append the div to list of div and increases div by 1
+        listOfDiv.push(div);
+        div += 1;
+      }
+      else {                      // re-sets the div value and listOfDiv when remainder is non-zero
+        //console.log("trial",trial)
+        //console.log(listOfDiv)
+        //console.log("------------")
+        var div = 2;   
+        var listOfDiv = [1]; 
+        trial += 2;
+      }
+
+      if (listOfDiv.length == n) {        // breaks out of while loop if length of array is equal to n
+  break
+      }
+
+    }
+
+      
+  }
+  console.log(listOfDiv)
+  console.log(trial)
+
+  return trial;
+}
+
+smallestMult(10);
