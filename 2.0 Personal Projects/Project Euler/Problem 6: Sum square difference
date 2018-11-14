@@ -1,0 +1,41 @@
+function sumSquareDifference(n) {
+  // function returns the differnce between the square of the sum of n natural numbers and the sum of the squares of n natural numbers.
+
+  var a = [];               // open array for list of n natural numbers 
+  var sumOTS = 0, squareOTS = 0; // open arrays for the sum of squares and square of sum to be appended to
+  var dif = 0;    // open array for difference to be appended to
+  var sum2 = 0;
+
+  for (var i = 0; i < n; i++) {      // generates a sequence of n natural numbers 
+    a.push(i + 1);
+  } 
+  //console.log(a)
+
+
+  //---------------------------------- generating squareOTS
+
+  for (var l = 0; l < n; l++) {
+    sum2 += a[l];
+  } 
+  squareOTS = sum2*sum2;
+
+  //---------------------------------- generating sumOTS and summing
+  
+  for (var j = 0; j < n; j++) {          // generates sequares of each element in a
+    a[j] *= a[j];
+  }
+  //console.log(a)
+
+  for (var k = 0; k < n; k++) {         // summing 
+    sumOTS += a[k];
+  }
+  //console.log(sumOTS)
+  //---------------------------------- generating SquareOTS and summing 
+  
+  dif = squareOTS - sumOTS
+  console.log(dif)
+
+  return dif;
+}
+
+sumSquareDifference(3);
