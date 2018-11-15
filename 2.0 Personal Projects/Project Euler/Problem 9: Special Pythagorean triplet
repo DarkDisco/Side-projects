@@ -1,0 +1,48 @@
+function specialPythagoreanTriplet(n) {
+  //Function returns the product of the numbers that make up a Pythagorean triplet, such that the sum of the numbers of the triplet equal n.
+
+ let sumOfabc = n;
+ var array = [2,1];          // array for selecting which variable b,a perform operation
+ var c = 0;                 // variable representing a^2 + b^2
+ var product = 0;            // represents a*b*c
+ var sum = 0;                // represents a+b+c
+
+ 
+ for (var i = 0; i < 1.5*n; i++) {          // iterates the value of a
+
+  for (var j = 0; j < 1.5*n; j++) {          // iterates the value of b
+    c = Math.pow((array[1]*array[1]) + (array[0]*array[0]),0.5); // defines c as sqrt(a^2 + b^2)
+    //console.log("c",c)
+    product = array[0]*array[1]*c;      // a*b*c
+    sum = c + array[1] + array[0];       // a+b+c
+    //console.log("triplet",c,array)
+    //console.log("product",product)
+    //console.log("sum",sum)
+    //console.log("----")
+
+    if (Number.isInteger(c) == true) {   // checks if c is a natural number
+      
+      if (sum == sumOfabc) {                     // checks if sum a+b+c is equal to n
+
+        //console.log(product)
+        return product;
+      }
+
+    }
+
+    array[0] += 1;                       // increases b by one if trial was not a Pythagorean triplet 
+
+  }
+
+  array[1] += 1;                     // increases a by one
+  array[0] = array[1] + 1;           // re-sets b to the value of a + 1 to maintain a < b < c
+ }
+
+ //console.log("----")
+ //console.log(count)
+ //Console.log(product)
+
+ return true;
+}
+
+specialPythagoreanTriplet(1000);
