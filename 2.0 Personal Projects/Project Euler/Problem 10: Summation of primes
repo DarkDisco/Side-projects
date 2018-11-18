@@ -1,0 +1,44 @@
+function primeSummation(n) {
+  // function
+
+  var trial = 3;          
+  var div = 2;           // number that trial is divided by
+  var a = [2];         // open array for primes to be appended to
+  var sum = 0;        // sum of primes below n
+
+
+  while (trial < n) {   // runs loop until the length of array a is equal to n
+
+    //console.log(trial)
+    if (trial % div != 0) {     // if the remainder of trial/div is non-zero, do the following
+      //console.log(div)
+      //trial += 1;
+      div += 1;
+
+      if (trial == div) {  // if the trial number becomese equal to div, then the trial number must be prime and is appended to a. All even numbers are a factor if two so the trial is increased by two as optimisation and div is reset 
+        a.push(trial);
+        //a[0] = trial;
+        trial += 2;
+        div = 3;
+      }
+    }
+    else {             // if the remainder of trial/div is equal to zero then the trial number is increased by two and div re-set
+      trial += 2;
+      div = 3;
+    }
+
+  }
+
+  //console.log(a)     // list of primes
+  
+
+  for (var i = 0; i < a.length; i++) {    //sums elements of array a into variable sum
+    sum += a[i];
+  }
+
+  //console.log(sum)
+
+  return sum;
+}
+
+primeSummation(17);
