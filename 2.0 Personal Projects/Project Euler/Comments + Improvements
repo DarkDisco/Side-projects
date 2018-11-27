@@ -17,11 +17,38 @@ Q5 - Smallest Multiple
   
   Only works up to n=10.
   
-Q6 -
-Q7 - 
-Q8 - 
-Q9 - 
-Q10 -
+Q6 - Sum square difference
+
+Q7 - 10001st prime
+
+   Works up to n=100.
+
+Q8 - Largest product in a series
+
+Q9 - Special Pythagorean triplet
+
+Q10 - Summation of primes
+
+   Works up to n=20001.
+
 Q11 - Largest Product in a grid
 
    Algorithm only works for te test grid, not larger array.
+   
+Q12 - Highly divisible triangular number
+
+   Works up to n=23.
+
+Q13
+Q14
+Q15
+Q16
+Q17
+Q18
+Q19
+Q20
+
+
+
+
+
