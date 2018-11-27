@@ -1,0 +1,69 @@
+function divisibleTriangleNumber(n) {
+  // Function returns the value of the first triangle number that has n divisors. A triangle number is one made by adding the natural numbers eg 3 --> 1+2+3 = 6.
+
+
+  var trial = 0;              // number incremented to form a triangle number
+  var triSeries = [];         // series of triangle number
+  var x = 1;                  // 
+  let div = 1;                // trial divisor
+  var numberOfDivisors = 1;    // count of how many divisors a triangle number has
+  //var list = [1];
+  var startTime = Date.now();
+  var startTime1 = Date.now();
+
+//-----------------------------------------------------
+
+  while ((Date.now() - startTime1) < 6000) {    // n+1          // set a loop to iterate for a while
+    
+    numberOfDivisors = 1;
+    div = 2
+    //list = [1];
+
+    for (var i = 0; i < x; i++) {   // generates a sequence of triangle numbers
+      trial += 1;
+    }
+
+
+    triSeries.push(trial)
+    //console.log(x)
+
+    while ((Date.now() - startTime) < 6000) {
+    //for (var i = 0; i < n; i++) {
+  
+      if (div > trial) {
+    break
+      }
+
+      //console.log("trial/div",trial,div)
+
+      if ( trial % div == 0) {      // find divisors of trial number in sequence, if the divisor leaves no remainder then numberOfDivisors is increased 
+        
+        numberOfDivisors += 1;
+        //list.push(div);
+        
+      }
+      div += 1                        
+
+
+    }
+
+    //console.log(trial,numberOfDivisors)
+    //console.log("divs",list)
+    //console.log(list.length)
+    //console.log("-------")
+
+    x += 1;
+
+    //if (list.length >= n) {
+      if (numberOfDivisors >= n) {                 // break out of while loop once a triangle number with n divisors is found
+      
+  break
+    }
+
+  }
+  console.log(trial)
+  
+  return trial;
+}
+
+divisibleTriangleNumber(23);
