@@ -1,0 +1,39 @@
+function longestCollatzSequence(limit) {
+  // Returns the starting number of a Collatz sequence that produces the largest chain, under a given limit.
+
+
+  var startTerm = limit-1;             // first trial number
+  var count;                           // counts number of terms in Collatz sequence
+  var b = 0;                           // varaible for largest count value
+  var a = 0;                         // term that provides largest count value
+
+  for (var i = 0; i < limit; i++) {      // iterates over the numbers upto the the limit given by the functio argument
+
+    count = 1;                          // re-sets count value for each new trial number
+    let term = startTerm;
+    //console.log(startTerm)
+    while (term > 1) {                    // iterates code until term is no longer greater than 1
+
+      if (term % 2 == 0) {                // if the remainder of term / 2 is equal to zero
+        term /= 2;                        // new term equals old term / 2
+      }
+      else {  
+        term = (3*term) + 1;              
+      }
+      //console.log(term)
+      count += 1;
+    }
+
+    if (count > b) {                       // sets a, equal to current largest term and b, equal to the curent count value
+      b = count; 
+      a = startTerm;
+    }
+    startTerm -= 1;                       // decreases the trial term by one for next iteration of code
+    //console.log("Count",count)
+  }
+  console.log(a,b)
+
+  return a;
+}
+
+longestCollatzSequence(46500);
