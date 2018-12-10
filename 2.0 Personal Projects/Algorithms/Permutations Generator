@@ -1,0 +1,20 @@
+function permutations(str) {
+  // function returns all permutations of a string.
+  var perms = [];    // open array for answer
+
+  if (str.length === 1) {       // base condition
+    perms.push(str);           // when str length is equal to one,  append str value to final array element
+    return perms;
+  }
+
+  for (var i = 0; i < str.length; i++) {       
+    var first = str[i];                  // variable to seperate first character of str
+    var remain = str.substring(0, i) + str.substring(i + 1); // remainding elements of str are seperated into differnet elements 
+    for (var j = 0; j < permutations(remain).length; j++) {   // iterate code for each string the second call of permutations
+      perms.push(first + permutations(remain)[j]);  // amend first element and second call of permutations to the open array perms
+    }
+
+  }
+  //console.log(perms)
+  return perms;
+}
