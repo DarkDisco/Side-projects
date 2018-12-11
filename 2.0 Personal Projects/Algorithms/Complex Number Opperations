@@ -1,0 +1,59 @@
+function complexAddMulti (a,b,c,d,e) {
+  // function returns operations performed to two complex numbers defined by the values ab,c,d. The value of e determines the opperation.
+
+  // e = 0 --> addition
+  // e = 1 --> multiplication
+  // e = 2 --> subtraction
+  // e = 3 --> divsion
+  // e = 4 --> modulus 
+  // e = 5 --> conjucate
+
+//-------------------------------------------------------------------------------------------- 
+
+
+  if (e == 0) {          // addition
+    var addR, addI;
+    addR = a + c;
+    addI = b + d;
+    //console.log(addR + addI) 
+    return addR +','+ 'i'+ addI
+  }
+  
+  if (e == 1) {           // multiplication
+    var multiR, multiI;
+    multiR = (a * c) - (b * d);
+    multiI = (a * d) + (c * b);
+    return multiR + ',' + 'i' + multiI;
+  }
+
+  if (e == 2) {             // subtraction
+    var subR, subI;
+    subR = a - c;
+    subI = b - d;
+    return subR + ',' + 'i' + subI
+  }
+
+  if (e == 3) {            // division
+    var divR, divI;
+    divR = (a * c) - (b * -d);
+    divI = (a * -d) + (b * c);
+    return divR + ',' + 'i' + divI
+  }
+
+  if ( e == 4) {             // modulus
+    var mod = [0,0];
+    mod[0] = ((a * a) + (b * b))** 0.5
+    mod[1] = ((c * c) + (d * d))** 0.5
+    //console.log(modA, modB)
+    return mod;
+  }
+
+  if (e == 5) {            // conjugate
+    var conjugate = [0,0];
+    conjugate[0] = a + ',' + -b;
+    conjugate[1] = c + ',' + -d;
+    return conjugate;
+  }
+  
+}
+console.log(complexAddMulti(2,2,1,1,5))
