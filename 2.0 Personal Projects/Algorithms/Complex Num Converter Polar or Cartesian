@@ -1,0 +1,20 @@
+function convertComplexNumPolarCart (a,b,c) {
+  // function converts complex numbers in Polar form to Cartesian and vice versa. Only accepts raidan values for angles.
+  // c = 0 --> Polar to Cartesian 
+  // c = 1 --> Cartesian to Polar
+
+  if (c == 0) {       // convert from polar to cartesian      
+      var im = a * Math.sin(b);
+      var r = (a**2 - im**2)**0.5;
+      return r + ',' + 'i' + im;
+  }
+
+  if (c == 1) { // convert from cartesian to polar 
+    var modulus = (a**2 + b**2)**0.5;
+    var angle = Math.atan(b/a);
+    return "Modulus = " + modulus + "  Angle = "+ angle;
+  }
+
+  return ;
+}
+console.log(convertComplexNumPolarCart(3,3,0))
