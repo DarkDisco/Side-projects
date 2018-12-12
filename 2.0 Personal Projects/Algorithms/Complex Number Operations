@@ -1,5 +1,5 @@
 function complexAddMulti (a,b,c,d,e) {
-  // function returns operations performed to two complex numbers defined by the values ab,c,d. The value of e determines the opperation.
+  // function returns operations performed to two complex numbers defined by the values a+ib, c+id. The value of e determines the opperation.
 
   // e = 0 --> addition
   // e = 1 --> multiplication
