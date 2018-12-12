@@ -1,0 +1,71 @@
+function complexVectorOperations(v1, v2, scalar, choice) {
+  // function returns an opperation performed on two vectors v1 and v2.
+  // addition, inverse and scalar multiplication dependent on the value of choice.
+  // choice = 0 --> Addition
+  // choice = 1 --> Inverse 
+  // choice = 2 --> Scalar Multiplication
+
+
+//-----------------------------------------------------------------------
+
+  function addition(v1, v2) {            // addition operation
+    for (var i = 0; i < V.length; i++) {       // iterates over the 
+      for (var j = 0; j < 2; j++) {      // iterates for both real and imaginary parts of the complex number
+        x[i][j] = V[i][j] + W[i][j];  // addition of individual components
+      }
+    }
+    return;
+  }
+
+
+  function inverse(v1, v2) {            // inverse operation 
+    for (var i = 0; i < V.length; i++) {
+      for (var j = 0; j < 2; j++) {
+        x[i][j] = V[i][j]*(-1);          // inverts individual components 
+        y[i][j] = W[i][j]*(-1);
+      }
+    }
+    return;
+  }
+
+
+  function scalarMulti(v1, v2, scalar) {
+    var a = scalar[0];            // variable for the real part of the scalar multiplier
+    var b = scalar[1];          // variable for the imaginary part of the scalar multiplier
+    for (var i = 0; i < V.length; i++) {
+      x[i][0] = (a * V[i][0]) - (b * V[i][1]); // real part of new vector x, using input vector V
+      x[i][1] = (a * V[i][1]) + (V[i][0] * b); // imaginary part
+
+      y[i][0] = (a * W[i][0]) - (b * W[i][1]); // similary for input vector W
+      y[i][1] = (a * W[i][1]) + (W[i][0] * b);      
+
+    }
+  }
+
+//-------------------------------------------------------------------
+
+  if (choice == 0) {    // function call dependent on input choice
+    addition(v1, v2, scalar);  
+  }
+  if (choice == 1) {
+    inverse(v1, v2, scalar);
+  }
+  if (choice == 2) {
+    scalarMulti(v1, v2, scalar);
+  }
+
+//---------------------------------------------------------------------
+
+  return 'x = ' + x + '\n' + 'y = ' + y;
+}
+
+
+//var V = [[6, 3], [0, 0], [5, 1], [4, 0]];
+var V = [[6, -4], [7, 3], [4.2, -8.1], [0, -3]];  // vector one
+var W = [[16, 2.3], [0, -7], [6, 0], [0, -4]];     // vector two
+
+var x = [[0,0], [0,0], [0,0], [0,0]];           // Answer
+var y = [[0,0], [0,0], [0,0], [0,0]];           // Answer
+
+console.log(complexVectorOperations(V, W, [3, 2], 0))
+
