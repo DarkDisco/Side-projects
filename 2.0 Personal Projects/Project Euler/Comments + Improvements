@@ -39,14 +39,26 @@ Q12 - Highly divisible triangular number
 
    Works up to n=23.
 
-Q13
-Q14
-Q15
-Q16
-Q17
-Q18
-Q19
-Q20
+Q13 - Large Sum
+
+Q14 - Longest Collazt Sequence
+   
+   Miss counts the number of terms in a Collazt sequence for some values of n, the starting limit.
+
+Q15 - Lattice paths
+   
+   Algorithm works, however is very inefficent. Finds the permutations of (n x 2)!, then sorts though the array 
+   to find duplicate. Lists become large very quickly as 6! produces 720 elements in the array.
+
+Q16 - Power Digit Sum
+
+Q17 - Number Letter Counts
+
+Q18 - Maximum Path Sum I
+
+Q19 - Counting Sundays
+
+Q20 - Factorial Digit Sum
 
 
 
