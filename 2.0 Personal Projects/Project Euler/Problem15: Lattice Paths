@@ -1,0 +1,66 @@
+function latticePaths(gridSize) {
+  // function returns the number of possible paths across a square grid of size given by the function argument. The only allowed moves are right and down which are used to navigate from the top left corner of the grid to the bottom right.
+
+  // define; 1 = move to the right, 0 = move down
+
+
+  var array1 = [];                 // open array for anwser
+  var count = 0;                   // counts the number of times a sequence of moves is repreated in array
+  var moves = gridSize*2;
+  var x = '';                       // empty string for possible sequence of moves to be amended to
+
+//--------------------------------------------------------------------- Generation of allowed move sequence
+
+  for (var i = 0; i < moves/2; i++) {
+    x += '1';
+  }
+  for (var i = moves/2; i < moves; i++) {
+    x += '0';
+  }
+  var array = getAllPermutations(x);     // array is equal to all the permutations avaliable
+  //console.log(x)
+  //console.log(array)
+//---------------------------------------------------------------------- Permutation function definition
+// https://initjs.org/all-permutations-of-a-set-f1be174c79f8
+
+  function getAllPermutations(string) {
+    var results = [];
+
+    if (string.length === 1) {
+      results.push(string);
+      return results;
+    }
+
+    for (var i = 0; i < string.length; i++) {
+      var firstChar = string[i];
+      var charsLeft = string.substring(0, i) + string.substring(i + 1);
+      var innerPermutations = getAllPermutations(charsLeft);
+      for (var j = 0; j < innerPermutations.length; j++) {
+        results.push(firstChar + innerPermutations[j]);
+      }
+    }
+    return results;
+  }
+
+//-------------------------------------------------------------------------- removal of repeated sequences
+
+  for (var i = 0; i < array.length; i++) {       // iterates code for each element of array
+    count = 0;                                  // resets count for each new iteration
+    for (var j = i+1; j < array.length; j++) {    // iterates for elements after the ith element of array
+      if (array[i] == array[j]) {               // increases count by one if element is repreated
+        count += 1;
+      }
+    }
+    if ( count == 1) {                 // if the count for the ith element is equal to one, then that element only appears in the array once
+      array1.push(array[i]);
+    }
+  }
+  console.log(array1.length)               // array with all possible routes for a given grid size
+
+//-------------------------------------------------------------------------------------
+
+
+  return array1.length;
+}
+
+latticePaths(2);
