@@ -1,0 +1,89 @@
+function complexMatrixOperations(v1, v2, scalar, choice) {
+  // function returns an opperation performed on two matrices v1 and v2.
+  // addition, inverse and scalar multiplication dependent on the value of choice.
+  // choice = 0 --> Addition
+  // choice = 1 --> Inverse 
+  // choice = 2 --> Scalar Multiplication
+
+
+//-----------------------------------------------------------------------
+
+  function addition(v1, v2) {            // addition operation
+    for (var i = 0; i < V.length; i++) {       // iterates over the matrix rows
+      for (var j = 0; j < V.length; j++) {  // iterates over the matrix column
+        for (var k = 0; k < 2; k++) {      // iterates for both real and imaginary parts of the complex number
+          x[i][j][k] = V[i][j][k] + W[i][j][k];  // addition of individual components
+        }
+      }
+    }
+    return;
+  }
+
+
+  function inverse(v1, v2) {            // inverse operation 
+    for (var i = 0; i < V.length; i++) {
+      for (var j = 0; j < V.length; j++) {
+        for (var k = 0; k < 2; k++) {
+          x[i][j][k] = V[i][j][k]*(-1);          // inverts individual components 
+          y[i][j][k] = W[i][j][k]*(-1);
+        }
+      }
+    }
+    return;
+  }
+
+
+  function scalarMulti(v1, v2, scalar) {
+    var a = scalar[0];            // variable for the real part of the scalar multiplier
+    var b = scalar[1];          // variable for the imaginary part of the scalar multiplier
+    for (var i = 0; i < V.length; i++) {
+      for (var j = 0; j < V.length; j++) {
+        x[i][j][0] = (a * V[i][j][0]) - (b * V[i][j][1]); // real part of new matrix x, using input matrix V
+        x[i][j][1] = (a * V[i][j][1]) + (V[i][j][0] * b); // imaginary part
+
+        y[i][j][0] = (a * W[i][j][0]) - (b * W[i][j][1]); // similary for input matrix W
+        y[i][j][1] = (a * W[i][j][1]) + (W[i][j][0] * b);      
+      }
+    }
+  }
+
+//-------------------------------------------------------------------
+
+  if (choice == 0) {    // function call dependent on input choice
+    addition(v1, v2, scalar);  
+  }
+  if (choice == 1) {
+    inverse(v1, v2, scalar);
+  }
+  if (choice == 2) {
+    scalarMulti(v1, v2, scalar);
+  }
+
+//---------------------------------------------------------------------
+
+  return 'x = ' + x + '\n' + 'y = ' + y;
+}
+
+
+
+// matrices of m x n dimension 
+var V = [
+[[10,20], [10,8], [3,6]], 
+[[5,2], [1,4], [1,2]],
+[[3,2], [1,2], [1,2]] ];
+
+var W = [
+[[1,2], [1,2], [1,2]], 
+[[1,2], [1,2], [1,2]],
+[[1,2], [1,2], [1,2]] ];
+
+var x = [                    // empty matrices for answers to be input
+[[0,0], [0,0], [0,0]], 
+[[0,0], [0,0], [0,0]],
+[[0,0], [0,0], [0,0]] ];          
+var y = [
+[[0,0], [0,0], [0,0]], 
+[[0,0], [0,0], [0,0]],
+[[0,0], [0,0], [0,0]] ];           
+
+console.log(complexMatrixOperations(V, W, [3, 2], 2))
