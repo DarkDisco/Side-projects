@@ -51,6 +51,8 @@ Q15 - Lattice paths
    to find duplicate. Lists become large very quickly as 6! produces 720 elements in the array.
 
 Q16 - Power Digit Sum
+   
+   Code needs cleaning up and only works up to exponent = 128, after the algorithm fails.
 
 Q17 - Number Letter Counts
 
