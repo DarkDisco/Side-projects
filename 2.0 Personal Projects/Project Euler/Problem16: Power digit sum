@@ -1,0 +1,123 @@
+function powerDigitSum(exponent) {
+  // function returns the sum of the digits of the number 2**(n)
+
+  var num = '1';    // starting number
+
+  for (var i = 0; i < exponent; i++) {
+
+    var multi = '2';                             // value to multiply num by
+    var currentN, currentS, currentNum = '00';   // variables represent current number, current string and a string that is the reverse of the output number
+
+    for (var j = 1; j <= num.length; j++) {           // iterates for each element of the string number
+
+      var carry = 0;  // variable to store the carry value from tens to hundreds
+      var countU = 0, countT = 1;
+
+      //--------------------------------------------- selects element of num to multiply by 2 and convert into string
+
+      currentN = num[num.length-j] * Number(multi) // converts string element into a number an multiplies the number by 2
+      currentS = currentN.toString()  // converts number back into a string
+    
+      //------------------------------------------- converts string into two strings that represent the tens and units
+
+      var tensStr = '', unitsStr = '';
+      if (currentN > 10) {
+        tensStr = currentS[0];
+        unitsStr = currentS[1];
+      }
+      else {unitsStr = currentS}
+      //console.log("split",unitsStr,tensStr)
+
+      //------------------------------------------------ conversion of string to number, then back to string
+
+      var tensNum, unitsNum;     // variable for conversion of string to num
+      var tensN, unitsN;           // variable for addition of current and next numbers
+      var xtens, xunits;           // variable for nums converted back to strings
+
+      if (j == 1) {
+        unitsNum = Number(currentNum[countU]);    // conversion of elements in the string num into numbers
+        tensNum = Number(currentNum[countT]);
+        //console.log("stringsbefore",unitsNum,tensNum)
+      }
+      else {
+        unitsNum = Number(xtens);
+        tensNum = 0 //Number(xtens);
+        //console.log("stringsBefore", unitsNum, tensNum)
+      }
+
+      unitsN = unitsNum + Number(unitsStr) + carry; // addition of current value and previous value
+      tensN = tensNum + Number(tensStr);
+      //console.log("addition",unitsN,tensN)
+
+      if (unitsN >= 10) {
+        unitsN -= 10;
+        tensN += 1;
+      }
+      if (tensN >= 10) {
+        tensN -= 10;
+        carry += 1;
+      }
+
+      xunits = unitsN.toString();        // conversion of number back into string to be appended to nums
+      xtens = tensN.toString();
+      //console.log("stringsAfter",xunits,xtens)
+      //console.log("-----------")
+
+      //---------------------------------------------- ammend results to string
+
+  
+      if (j == 1) {
+        currentNum += xunits
+        currentNum += xtens
+      }
+      else {
+        currentNum = currentNum.substring(0, currentNum.length -1)
+        currentNum += xunits
+        currentNum += xtens
+      }
+
+      countU += 1;
+      countT += 1;
+
+    }
+
+    //console.log(currentNum)
+
+    //--------------------------------------------------------------- Trim string to remove excess zeros (don't need)
+
+    var rev = currentNum.split("").reverse().join("");  // reverses order of elements in string
+    var answer = rev.slice(0,rev.length-2)              // removes two zeros on the end of string
+
+    for (var k = 0; k < answer.length; k++) {   // removes any zeros on the front of the string
+      if (answer[k] != 0) {
+    break
+      }
+      else {var qq = answer.slice(1,rev.length)}
+    }
+
+    if ( i % 3 == 0) {
+      num = 0 + qq
+    }
+    else {num = qq}
+
+  }
+
+  //------------------------------------------ summation of elements in qq
+
+  var sum = 0;        // summation the elements in string qq
+
+  for (var i = 0; i < qq.length; i++) {
+    sum += Number(qq[i]);
+  }
+
+
+
+
+  console.log(sum)
+  return sum;
+}
+
+powerDigitSum(15);
+
+
+
