@@ -1,0 +1,23 @@
+function palindrome(str) {
+  // function returns true if a string given as the function argument is palindromic.
+
+
+  var newstr = str.replace(/[^A-Za-z0-9]/g,"")   // remove any non-alphanumeric characters
+  var newerstr = newstr.replace( /\s+/, ""); // remove spaces
+  var t = newerstr.toLowerCase();  // convert to lower case
+  var rev = '';               // empty string for reverse of string t
+
+
+  for (var i = (t.length-1); i >= 0; i--) {  // reverses order of elements in string
+    rev += t[i];
+  }
+
+  if ( t === rev) {return true}
+  else {return false}
+
+  return;
+}
+
+
+
+palindrome("_eye");
