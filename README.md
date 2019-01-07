@@ -11,6 +11,6 @@
 \
 2 - Personal
 
-  2.1 Freecodecamp.org \
-    2.1.1 (Active) Responsive web design \
-    2.1.2
+  Freecodecamp.org Certification\
+  Algorithms\
+  Project Euler Algorithms\
