@@ -13,4 +13,4 @@
 
   Freecodecamp.org Certification\
   Algorithms\
-  Project Euler Algorithms\
+  Project Euler Algorithms
