@@ -1,0 +1,42 @@
+function maximumPathSumI(triangle) {
+  // Functions returns the maximum total acheivable by summing numbers from top to bottom of a given triangle array. Moving between rows is limited to adjacent numbers from the neighbouring row, ie moving from row n to n+1 the adjacent numbers in row n+1 are of equal index and index +1 to the element of row n.
+
+
+  var tempArray = triangle[triangle.length-1]; // sets tempAray equal to bottom row of triangle
+  var counter1 = 2;          // seperate counter to iterate over the second from bottom row in triangle
+
+  var temp1, temp2;                 // temp variables for adjacent numbers between two rows
+
+
+  for (var i = triangle.length; i > 1; i --) { // iterates over rows of triangle from bottom to top
+
+    for (var j = 0; j < triangle[triangle.length-1].length-1; j++) {   // iterates over elements of second from bottom row
+      temp1 = 0;  // re-set temp values
+      temp2 = 0;
+
+      temp1 = Number(tempArray[j]) + Number(triangle[triangle.length-counter1][j]);
+      //console.log('temp1', tempArray[j], triangle[triangle.length-counter1][j])
+      temp2 = Number(tempArray[j+1]) + Number(triangle[triangle.length-counter1][j]);
+      //console.log('temp2', tempArray[j+1], triangle[triangle.length-counter1][j])
+
+      if (temp1 > temp2) {tempArray[j] = temp1}  // biggest temp value appended to temp array
+      else {tempArray[j] = temp2}                  
+      // problem if temp1 == temp2!!
+    }
+
+    if (tempArray.length > 1) {tempArray.pop()}   // removes the disused final element
+    counter1 += 1;
+    //console.log(tempArray)
+
+  }
+  
+
+  return tempArray[0];
+}
+
+const testTriangle = [[3, 0, 0, 0],
+                      [7, 4, 0, 0],
+                      [2, 4, 6, 0],
+                      [8, 5, 9, 3]];
+
+maximumPathSumI(testTriangle);
