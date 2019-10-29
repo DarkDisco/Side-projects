@@ -1,0 +1,62 @@
+function sumAmicableNum(n) {
+  // Function returns Amicable numbers below n. Am amicable pair is formed when d(a) = b and d(b) = a, where a ≠ b. The function d(n) is the sum of proper divisors of n.
+
+
+
+  //var testA = [], testB = []; // debugging arrays for divisors of test numbers
+  var sumAmi = 0; //sum of all amicable numbers under n
+  var sumTestA = 0; // sum of proper divisors of a test number less than n
+  var sumTestB = 0; // sum of proper divisors of the number sumTestA
+  //var listOfPairs = []; // debugging array for amicable pairs
+
+
+
+  for (var i=1; i< n ; i++) { // increments divisors less than n 
+
+    sumTestA = 0;             // re-sets variables for next iteration
+    sumTestB = 0;
+    //testA = [], testB = [];
+   
+
+    for (var j=1; j< i; j++) { // generate list of proper divisors for d(a) = b
+      if (i % j == 0) {
+        //testA.push(j);
+        sumTestA += j;
+      }
+    }
+
+    for (var j=1; j < sumTestA; j++) { // generate list of proper divisors for d(b) = a
+      if (sumTestA % j == 0) {
+        //testB.push(j);
+        sumTestB += j;
+      }
+    }
+
+    if (sumTestA == sumTestB) { // if a == b then don't count as amicable pair 
+
+    }
+    else
+      if (i == sumTestB) { // 
+        sumAmi += sumTestA;
+        sumAmi += sumTestB;
+        //listOfPairs.push(sumTestA)
+        //listOfPairs.push(sumTestB)
+      }
+
+
+  }
+
+//debugging ------------------------------------------------------------------------
+   //console.log("list of pairs", listOfPairs)
+  //console.log("list of divisors", testA)
+  //console.log("sumA", sumTestA)
+  //console.log("-----------")
+  //console.log(testB)
+  //console.log("sumB",sumTestB)
+  //console.log("-----------")
+  //console.log("sum Amicable pairs", sumAmi)
+
+  return sumAmi*0.5;
+}
+
+sumAmicableNum(1000);
