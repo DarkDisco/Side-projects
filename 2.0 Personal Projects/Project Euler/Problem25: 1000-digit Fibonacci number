@@ -1,0 +1,31 @@
+function digitFibonacci(n) {
+  // Function returns the term number for the first Fibonacci sequence term to contain n digits
+
+
+  var fibSeq = [1,1] // array for the two terms of fib sequence requried to calculate the next
+  var nextFib // used for the next element of the fib sequence
+  var str = ""; // open str to contain nextFib value for calculating how many digits it is
+  var nthIndex; // set equal to the index value, for function output
+
+  for (var i=0; i<(100); i++) { // iterate over the number of terms included in sequence
+    nextFib = fibSeq[0] + fibSeq[1] // generte next fib term by addition of two previous terms
+    fibSeq.push(nextFib) // add next term in sequence to fibSeq
+    str = nextFib.toString(); // convert number to string value
+    fibSeq.shift(); // removes the first element of fibSeq
+    if (str.length == n) { // check if the number of digits in string is equal to the search number, n.
+      nthIndex = i+3 // adjusts value of nth index to account for the first two term os fib sequence
+  break
+    }
+
+
+  }
+
+  // debugging -------------------------------------------------
+  //console.log(str)
+  //console.log(fibSeq)
+  //console.log(nthIndex)
+
+  return nthIndex;
+}
+
+digitFibonacci(20);
